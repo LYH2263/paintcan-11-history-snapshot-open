@@ -14,6 +14,7 @@ class PaintService:
         return {"room": r, "openings": openings.for_room(self._c, rid)}
     def settings(self): return settings.get_map(self._c)
     def history(self, limit=50): return runs.list_recent(self._c, limit)
+    def run_detail(self, run_id): return runs.get_by_id(self._c, run_id)
     def estimate(self, room_id, persist, coats=None, coverage=None):
         detail = self.room_detail(room_id)
         if not detail: return None
